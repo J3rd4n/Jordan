@@ -209,6 +209,13 @@
 
         .hidden {
             display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            position: absolute !important;
+            left: -9999px !important;
+            width: 0 !important;
+            height: 0 !important;
+            overflow: hidden !important;
         }
     </style>
 </head>
@@ -259,14 +266,34 @@
     <script>
         function showComputer() {
             console.log('显示电脑类别');
-            document.getElementById('kali-button-wrapper').classList.remove('hidden');
-            document.getElementById('tetris-button-wrapper').classList.remove('hidden');
+            const kaliWrapper = document.getElementById('kali-button-wrapper');
+            const tetrisWrapper = document.getElementById('tetris-button-wrapper');
+            
+            kaliWrapper.classList.remove('hidden');
+            kaliWrapper.style.display = '';
+            kaliWrapper.style.visibility = '';
+            kaliWrapper.style.opacity = '';
+            
+            tetrisWrapper.classList.remove('hidden');
+            tetrisWrapper.style.display = '';
+            tetrisWrapper.style.visibility = '';
+            tetrisWrapper.style.opacity = '';
         }
 
         function showMobile() {
             console.log('显示手机类别');
-            document.getElementById('kali-button-wrapper').classList.add('hidden');
-            document.getElementById('tetris-button-wrapper').classList.add('hidden');
+            const kaliWrapper = document.getElementById('kali-button-wrapper');
+            const tetrisWrapper = document.getElementById('tetris-button-wrapper');
+            
+            // 隐藏 Kali Linux
+            kaliWrapper.classList.add('hidden');
+            kaliWrapper.style.display = 'none';
+            kaliWrapper.style.visibility = 'hidden';
+            
+            // 隐藏俄罗斯方块
+            tetrisWrapper.classList.add('hidden');
+            tetrisWrapper.style.display = 'none';
+            tetrisWrapper.style.visibility = 'hidden';
         }
     </script>
 
