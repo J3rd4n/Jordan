@@ -5,6 +5,26 @@
     box-sizing: border-box;
 }
 
+/* 桌面端强制隐藏移动端控制按钮 */
+@media (min-width: 769px) {
+    .mobile-controls,
+    .mobile-controls *,
+    .mobile-btn,
+    .mobile-btn-rotate,
+    .mobile-btn-left,
+    .mobile-btn-right,
+    .mobile-btn-down,
+    .mobile-btn-drop,
+    .mobile-control-row {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        position: absolute !important;
+        left: -9999px !important;
+        pointer-events: none !important;
+    }
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
