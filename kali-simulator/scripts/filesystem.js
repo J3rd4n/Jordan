@@ -97,7 +97,28 @@ class VirtualFileSystem {
                                     group: 'kali',
                                     size: 4096,
                                     modified: new Date(),
-                                    children: {}
+                                    children: {
+                                        'sample_scan.txt': {
+                                            name: 'sample_scan.txt',
+                                            type: 'file',
+                                            permissions: '-rw-r--r--',
+                                            owner: 'kali',
+                                            group: 'kali',
+                                            size: 1789,
+                                            modified: new Date(),
+                                            content: '# Nmap Scan Results\n# Generated: 2024-03-07\n\nStarting Nmap 7.94 ( https://nmap.org ) at 2024-03-07 17:45:23\n\nHost: 192.168.1.100 (scanme.nmap.org)\nStatus: Up\nHost is up (0.0022s latency).\n\nNot shown: 995 closed ports\nPORT     STATE SERVICE VERSION\n22/tcp   open  ssh     OpenSSH 9.6p1 Ubuntu 3ubuntu13 (Ubuntu Linux; protocol 2.0)\n80/tcp   open  http    Apache httpd 2.4.58 ((Ubuntu))\n443/tcp  open  https   Apache httpd 2.4.58 ((Ubuntu))\n3306/tcp open  mysql   MySQL 8.0.36-0ubuntu0.24.04.1\n\nService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\nNmap done: 1 IP address (1 host up) scanned in 3.45 seconds'
+                                        },
+                                        'passwords.txt': {
+                                            name: 'passwords.txt',
+                                            type: 'file',
+                                            permissions: '-rw-------',
+                                            owner: 'kali',
+                                            group: 'kali',
+                                            size: 567,
+                                            modified: new Date(),
+                                            content: '# Common Passwords List\n# For educational and testing purposes only\n\npassword\n123456\n12345678\n\nqwerty\nabc123\n\nmonkey\n\nletmein\n\ndragon\n\npassword1'
+                                        }
+                                    }
                                 },
                                 'Pictures': {
                                     name: 'Pictures',
@@ -128,6 +149,110 @@ class VirtualFileSystem {
                                     size: 4096,
                                     modified: new Date(),
                                     children: {}
+                                },
+                                'Tools': {
+                                    name: 'Tools',
+                                    type: 'directory',
+                                    permissions: 'drwxr-xr-x',
+                                    owner: 'kali',
+                                    group: 'kali',
+                                    size: 4096,
+                                    modified: new Date(),
+                                    children: {
+                                        'wordlists': {
+                                            name: 'wordlists',
+                                            type: 'directory',
+                                            permissions: 'drwxr-xr-x',
+                                            owner: 'kali',
+                                            group: 'kali',
+                                            size: 4096,
+                                            modified: new Date(),
+                                            children: {
+                                                'rockyou.txt': {
+                                                    name: 'rockyou.txt',
+                                                    type: 'file',
+                                                    permissions: '-rw-r--r--',
+                                                    owner: 'kali',
+                                                    group: 'kali',
+                                                    size: 14344320,
+                                                    modified: new Date(),
+                                                    content: '# Common Passwords List - Top 10 million most common passwords\n# For security testing and educational purposes only\n\n123456\npassword\n12345678\n\nqwerty\nabc123\n\nmonkey\n\nletmein\ndragon\n111111\nbaseball\niloveyou\n\ntrustno1\n\nsunshine\n\nprincess\nadmin\n\nwelcome\nshadow\n\nmaster\n\nhello\n\nfreedom\n\nwhatever\n\nqazwsx\n\ntennis\n\njordan\n\ncomputer\n\nmichael\n\n654321\n\nsuperman\n\n1qaz2wsx\n\nqwertyuiop\n\n7777777\n\nfuckyou\n\n!@#$\n\n000000\n\nzxcvbnm\n\n1q2w3e4r\n\nqwerty123\n\npassword1\n\n\nbatman\n\ntrustno1\n\npassword123\n\n\nqwertyuiop\n\nashley\n\n\nfootball\n\njesus\n\nninja\n\nmustang\n\npassword123\n\n666666\n\n\nhello123\n\n\ncharlie\n\n\nrobert\n\n\nandrew\n\n\nmichelle\n\n\njoshua'
+                                                },
+                                                'common.txt': {
+                                                    name: 'common.txt',
+                                                    type: 'file',
+                                                    permissions: '-rw-r--r--',
+                                                    owner: 'kali',
+                                                    group: 'kali',
+                                                    size: 234,
+                                                    modified: new Date,
+                                                    content: 'admin\nadministrator\nroot\nuser\ntest\npassword\nqwerty\n123456\nletmein'
+                                                }
+                                            }
+                                        },
+                                        'scripts': {
+                                            name: 'scripts',
+                                            type: 'directory',
+                                            permissions: 'drwxr-xr-x',
+                                            owner: 'kali',
+                                            group: 'kali',
+                                            size: 4096,
+                                            modified: new Date(),
+                                            children: {
+                                                'backup.sh': {
+                                                    name: 'backup.sh',
+                                                    type: 'file',
+                                                    permissions: '-rwxr-xr-x',
+                                                    owner: 'kali',
+                                                    group: 'kali',
+                                                    size: 234,
+                                                    modified: new Date(),
+                                                    content: '# Backup Script\n#!/bin/bash\nDATE=$(date +%Y-%m-%d)\nBACKUP_DIR="/home/kali/Backups"\nmkdir -p $BACKUP_DIR\ntar -czf $BACKUP_DIR/backup-$DATE.tar.gz /home/kali/Tools /home/kali/Projects 2>/dev/null\necho "Backup completed: backup-$DATE.tar.gz"'
+                                                },
+                                                'scan.sh': {
+                                                    name: 'scan.sh',
+                                                    type: 'file',
+                                                    permissions: '-rwxr-xr-x',
+                                                    owner: 'kali',
+                                                    group: 'kali',
+                                                    size: 567,
+                                                    modified: new Date(),
+                                                    content: '# Network Scan Script\n#!/bin/bash\nTARGET=$1\nif [ -z "$TARGET" ]; then\n    echo "Usage: $0 <target>"\n    exit 1\nfi\n\nnmap -sV -p- -A $TARGET | tee -a /home/kali/Tools/scans/$TARGET-scan.txt\necho "Scan completed. Results saved to /home/kali/Tools/scans/$TARGET-scan.txt"'
+                                                }
+                                            }
+                                        },
+                                        'Projects': {
+                                            name: 'Projects',
+                                            type: 'directory',
+                                            permissions: 'drwxr-xr-x',
+                                            owner: 'kali',
+                                            group: 'kali',
+                                            size: 4096,
+                                            modified: new Date(),
+                                            children: {
+                                                'notes.txt': {
+                                                    name: 'notes.txt',
+                                                    type: 'file',
+                                                    permissions: '-rw-r--r--',
+                                                    owner: 'kali',
+                                                    group: 'kali',
+                                                    size: 189,
+                                                    modified: new Date(),
+                                                    content: 'Kali Linux Projects:\n\n1. Penetration Testing Lab\n2. CTF Challenges\n3. Security Research\n4. Tool Development'
+                                                }
+                                            }
+                                        },
+                                        'scans': {
+                                            name: 'scans',
+                                            type: 'directory',
+                                            permissions: 'drwxr-xr-x',
+                                            owner: 'kali',
+                                            group: 'kali',
+                                            size: 4096,
+                                            modified: new Date(),
+                                            children: {}
+                                        }
+                                    }
                                 },
                                 '.bashrc': {
                                     name: '.bashrc',
