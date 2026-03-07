@@ -320,30 +320,506 @@ class Applications {
     }
 
     createFirefox(container) {
+        const firefoxId = 'firefox-' + Date.now();
         container.innerHTML = `
-            <div class="firefox-window">
+            <div class="firefox-window" id="${firefoxId}">
+                <div class="firefox-tabs">
+                    <div class="tab active" data-url="about:home">
+                        <span class="tab-icon">🏠</span>
+                        <span class="tab-title">New Tab</span>
+                        <span class="tab-close">&times;</span>
+                    </div>
+                    <div class="tab-add">+</div>
+                </div>
                 <div class="firefox-toolbar">
-                    <button class="toolbar-button">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
-                        </svg>
-                    </button>
-                    <button class="toolbar-button">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
-                        </svg>
-                    </button>
-                    <input type="text" class="url-bar" value="https://www.kali.org/" placeholder="Search or enter address">
+                    <div class="toolbar-left">
+                        <button class="toolbar-button nav-back" title="Back">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                            </svg>
+                        </button>
+                        <button class="toolbar-button nav-forward" title="Forward">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/>
+                            </svg>
+                        </button>
+                        <button class="toolbar-button nav-refresh" title="Refresh">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                            </svg>
+                        </button>
+                        <button class="toolbar-button nav-home" title="Home">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="toolbar-center">
+                        <div class="url-bar-container">
+                            <span class="url-protocol">🔒</span>
+                            <input type="text" class="url-bar" value="about:home" placeholder="Search or enter address">
+                        </div>
+                        <button class="toolbar-button bookmark-toggle" title="Bookmark this page">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="toolbar-right">
+                        <button class="toolbar-button downloads" title="Downloads">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                        </button>
+                        <button class="toolbar-button menu" title="Menu">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="firefox-bookmarks">
+                    <div class="bookmark-item" data-url="https://www.kali.org/">🔴 Kali Linux</div>
+                    <div class="bookmark-item" data-url="https://www.kali.org/tools/">🔧 Kali Tools</div>
+                    <div class="bookmark-item" data-url="https://forums.kali.org/">💬 Kali Forums</div>
+                    <div class="bookmark-item" data-url="https://docs.kali.org/">📚 Kali Docs</div>
+                    <div class="bookmark-item" data-url="https://www.google.com/">🔍 Google</div>
                 </div>
                 <div class="firefox-content">
-                    <div class="firefox-placeholder">
-                        <h2>Welcome to Firefox</h2>
-                        <p>This is a simulated Firefox browser for the Kali Linux Simulator.</p>
-                        <button>Get Started</button>
-                    </div>
+                    <iframe class="firefox-iframe" src="about:blank" sandbox="allow-same-origin allow-scripts allow-forms"></iframe>
+                </div>
+                <div class="firefox-statusbar">
+                    <span class="status-text">Done</span>
+                    <span class="status-zoom">100%</span>
                 </div>
             </div>
         `;
+
+        // Initialize Firefox functionality
+        this.initFirefox(container);
+    }
+
+    initFirefox(container) {
+        const firefox = container.querySelector('.firefox-window');
+        const urlBar = container.querySelector('.url-bar');
+        const iframe = container.querySelector('.firefox-iframe');
+        const tabs = container.querySelectorAll('.tab');
+        const tabAdd = container.querySelector('.tab-add');
+        const bookmarkItems = container.querySelectorAll('.bookmark-item');
+        const statusText = container.querySelector('.status-text');
+        const activeTab = container.querySelector('.tab.active');
+
+        // Tab functionality
+        tabs.forEach(tab => {
+            const tabClose = tab.querySelector('.tab-close');
+            if (tabClose) {
+                tabClose.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (tabs.length > 1) {
+                        tab.remove();
+                    }
+                });
+            }
+
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const url = tab.dataset.url;
+                if (url) {
+                    this.loadUrl(container, url);
+                }
+            });
+        });
+
+        // Add new tab
+        if (tabAdd) {
+            tabAdd.addEventListener('click', () => {
+                const newTab = document.createElement('div');
+                newTab.className = 'tab active';
+                newTab.dataset.url = 'about:home';
+                newTab.innerHTML = `
+                    <span class="tab-icon">🏠</span>
+                    <span class="tab-title">New Tab</span>
+                    <span class="tab-close">&times;</span>
+                `;
+                tabs.forEach(t => t.classList.remove('active'));
+                container.querySelector('.firefox-tabs').insertBefore(newTab, tabAdd);
+                
+                newTab.querySelector('.tab-close').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (container.querySelectorAll('.tab').length > 1) {
+                        newTab.remove();
+                    }
+                });
+
+                newTab.addEventListener('click', () => {
+                    container.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    newTab.classList.add('active');
+                    this.loadUrl(container, 'about:home');
+                });
+
+                this.loadUrl(container, 'about:home');
+            });
+        }
+
+        // URL bar functionality
+        urlBar.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                let url = urlBar.value.trim();
+                if (url) {
+                    if (!url.startsWith('http://') && !url.startsWith('https://') && !url.startsWith('about:')) {
+                        if (url.includes('.') && !url.includes(' ')) {
+                            url = 'https://' + url;
+                        } else {
+                            url = 'https://www.google.com/search?q=' + encodeURIComponent(url);
+                        }
+                    }
+                    this.loadUrl(container, url);
+                }
+            }
+        });
+
+        // Navigation buttons
+        container.querySelector('.nav-back')?.addEventListener('click', () => {
+            if (iframe.contentWindow.history.length > 1) {
+                iframe.contentWindow.history.back();
+            }
+        });
+
+        container.querySelector('.nav-forward')?.addEventListener('click', () => {
+            if (iframe.contentWindow.history.length > 1) {
+                iframe.contentWindow.history.forward();
+            }
+        });
+
+        container.querySelector('.nav-refresh')?.addEventListener('click', () => {
+            const currentUrl = urlBar.value;
+            this.loadUrl(container, currentUrl);
+        });
+
+        container.querySelector('.nav-home')?.addEventListener('click', () => {
+            this.loadUrl(container, 'about:home');
+        });
+
+        // Bookmark functionality
+        container.querySelector('.bookmark-toggle')?.addEventListener('click', () => {
+            const currentUrl = urlBar.value;
+            if (currentUrl && currentUrl !== 'about:home') {
+                this.showNotification('Page bookmarked: ' + currentUrl);
+            }
+        });
+
+        // Bookmarks
+        bookmarkItems.forEach(bookmark => {
+            bookmark.addEventListener('click', () => {
+                const url = bookmark.dataset.url;
+                if (url) {
+                    this.loadUrl(container, url);
+                }
+            });
+        });
+
+        // Downloads button
+        container.querySelector('.downloads')?.addEventListener('click', () => {
+            this.showNotification('Downloads panel would open here');
+        });
+
+        // Menu button
+        container.querySelector('.menu')?.addEventListener('click', () => {
+            this.showNotification('Firefox menu would open here');
+        });
+
+        // Keyboard shortcuts
+        firefox.addEventListener('keydown', (e) => {
+            // Ctrl+L - Focus address bar
+            if (e.ctrlKey && e.key === 'l') {
+                e.preventDefault();
+                urlBar.focus();
+                urlBar.select();
+            }
+            // Ctrl+T - New tab
+            else if (e.ctrlKey && e.key === 't') {
+                e.preventDefault();
+                tabAdd.click();
+            }
+            // Ctrl+W - Close tab
+            else if (e.ctrlKey && e.key === 'w') {
+                e.preventDefault();
+                const activeTab = container.querySelector('.tab.active');
+                if (activeTab && container.querySelectorAll('.tab').length > 1) {
+                    activeTab.querySelector('.tab-close')?.click();
+                }
+            }
+            // Ctrl+R - Refresh
+            else if (e.ctrlKey && e.key === 'r') {
+                e.preventDefault();
+                container.querySelector('.nav-refresh')?.click();
+            }
+            // Ctrl+H - Home
+            else if (e.ctrlKey && e.key === 'h') {
+                e.preventDefault();
+                container.querySelector('.nav-home')?.click();
+            }
+            // F5 - Refresh
+            else if (e.key === 'F5') {
+                e.preventDefault();
+                container.querySelector('.nav-refresh')?.click();
+            }
+            // Escape - Stop loading (simulated)
+            else if (e.key === 'Escape') {
+                if (statusText) statusText.textContent = 'Stopped';
+            }
+        });
+
+        // Load home page
+        this.loadUrl(container, 'about:home');
+    }
+
+    loadUrl(container, url) {
+        const urlBar = container.querySelector('.url-bar');
+        const iframe = container.querySelector('.firefox-iframe');
+        const statusText = container.querySelector('.status-text');
+        const activeTab = container.querySelector('.tab.active');
+
+        if (urlBar) urlBar.value = url;
+        if (statusText) statusText.textContent = 'Loading...';
+
+        if (url === 'about:home') {
+            if (iframe) {
+                const homePage = `
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <style>
+                            body {
+                                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                                margin: 0;
+                                padding: 0;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                min-height: 100vh;
+                            }
+                            .container {
+                                text-align: center;
+                                color: white;
+                                padding: 40px;
+                            }
+                            .logo {
+                                font-size: 64px;
+                                margin-bottom: 20px;
+                            }
+                            h1 {
+                                font-size: 32px;
+                                margin-bottom: 10px;
+                            }
+                            .search-box {
+                                margin-top: 30px;
+                            }
+                            .search-input {
+                                width: 400px;
+                                padding: 12px 20px;
+                                font-size: 16px;
+                                border: none;
+                                border-radius: 24px;
+                                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                                outline: none;
+                            }
+                            .search-input:focus {
+                                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                            }
+                            .quick-links {
+                                margin-top: 40px;
+                                display: flex;
+                                justify-content: center;
+                                gap: 20px;
+                                flex-wrap: wrap;
+                            }
+                            .quick-link {
+                                background: rgba(255,255,255,0.1);
+                                padding: 15px 25px;
+                                border-radius: 12px;
+                                text-decoration: none;
+                                color: white;
+                                transition: all 0.3s ease;
+                                backdrop-filter: blur(10px);
+                            }
+                            .quick-link:hover {
+                                background: rgba(255,255,255,0.2);
+                                transform: translateY(-2px);
+                            }
+                            .info {
+                                margin-top: 30px;
+                                opacity: 0.8;
+                                font-size: 14px;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="container">
+                            <div class="logo">🦊</div>
+                            <h1>Welcome to Firefox</h1>
+                            <p>Kali Linux Simulator Edition</p>
+                            <div class="search-box">
+                                <input type="text" class="search-input" placeholder="Search the web..." id="searchInput">
+                            </div>
+                            <div class="quick-links">
+                                <a href="https://www.kali.org/" class="quick-link">🔴 Kali Linux</a>
+                                <a href="https://www.google.com/" class="quick-link">🔍 Google</a>
+                                <a href="https://github.com/" class="quick-link">🐙 GitHub</a>
+                                <a href="https://www.wikipedia.org/" class="quick-link">📖 Wikipedia</a>
+                            </div>
+                            <div class="info">
+                                Press Ctrl+L to focus address bar • Ctrl+T for new tab • Ctrl+W to close tab
+                            </div>
+                        </div>
+                        <script>
+                            document.getElementById('searchInput').addEventListener('keypress', function(e) {
+                                if (e.key === 'Enter') {
+                                    const query = this.value.trim();
+                                    if (query) {
+                                        window.location.href = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+                                    }
+                                }
+                            });
+                            document.querySelectorAll('.quick-link').forEach(link => {
+                                link.addEventListener('click', function(e) {
+                                    e.preventDefault();
+                                    window.parent.postMessage({type: 'navigate', url: this.href}, '*');
+                                });
+                            });
+                        </script>
+                    </body>
+                    </html>
+                `;
+                iframe.srcdoc = homePage;
+            }
+        } else if (url.startsWith('http')) {
+            if (iframe) {
+                // Try to load the URL
+                try {
+                    iframe.src = url;
+                } catch (e) {
+                    // If loading fails (due to X-Frame-Options), show a message
+                    iframe.srcdoc = `
+                        <!DOCTYPE html>
+                        <html>
+                        <head>
+                            <style>
+                                body {
+                                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                                    background: #1a1a2e;
+                                    color: #e0e0e0;
+                                    margin: 0;
+                                    padding: 40px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    min-height: 100vh;
+                                }
+                                .container {
+                                    text-align: center;
+                                    max-width: 600px;
+                                }
+                                .icon {
+                                    font-size: 64px;
+                                    margin-bottom: 20px;
+                                }
+                                h1 {
+                                    margin-bottom: 15px;
+                                }
+                                .url {
+                                    background: rgba(255,255,255,0.1);
+                                    padding: 10px 15px;
+                                    border-radius: 6px;
+                                    margin: 20px 0;
+                                    word-break: break-all;
+                                    font-family: monospace;
+                                }
+                                .note {
+                                    color: #888;
+                                    margin-top: 20px;
+                                    font-size: 14px;
+                                }
+                                .buttons {
+                                    margin-top: 30px;
+                                }
+                                .btn {
+                                    background: var(--kali-blue, #557799);
+                                    color: white;
+                                    border: none;
+                                    padding: 12px 24px;
+                                    border-radius: 6px;
+                                    cursor: pointer;
+                                    margin: 5px;
+                                    text-decoration: none;
+                                    display: inline-block;
+                                }
+                                .btn:hover {
+                                    opacity: 0.9;
+                                }
+                            </style>
+                        </head>
+                        <body>
+                            <div class="container">
+                                <div class="icon">🔒</div>
+                                <h1>Unable to load this page</h1>
+                                <p>This website cannot be displayed in the simulator due to security restrictions (X-Frame-Options).</p>
+                                <div class="url">${url}</div>
+                                <div class="note">You can try opening this link in a new tab of your real browser.</div>
+                                <div class="buttons">
+                                    <a href="${url}" target="_blank" class="btn">Open in new tab</a>
+                                    <button class="btn" onclick="window.parent.postMessage({type: 'navigate', url: 'about:home'}, '*')">Go back home</button>
+                                </div>
+                            </div>
+                        </body>
+                        </html>
+                    `;
+                }
+            }
+        }
+
+        // Update tab
+        if (activeTab) {
+            activeTab.dataset.url = url;
+            const tabTitle = activeTab.querySelector('.tab-title');
+            if (tabTitle) {
+                tabTitle.textContent = url === 'about:home' ? 'New Tab' : 
+                    url.replace(/^https?:\/\//, '').replace(/\/.*$/, '');
+            }
+        }
+
+        if (statusText) statusText.textContent = 'Done';
+
+        // Handle messages from iframe
+        window.addEventListener('message', (e) => {
+            if (e.data.type === 'navigate') {
+                this.loadUrl(container, e.data.url);
+            }
+        });
+    }
+
+    showNotification(message) {
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = 'firefox-notification';
+        notification.innerHTML = `
+            <span>${message}</span>
+            <button class="notification-close">&times;</button>
+        `;
+        document.body.appendChild(notification);
+
+        // Auto remove after 3 seconds
+        setTimeout(() => {
+            notification.classList.add('fade-out');
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+
+        // Close button
+        notification.querySelector('.notification-close').addEventListener('click', () => {
+            notification.remove();
+        });
     }
 
     createNmap(container) {
