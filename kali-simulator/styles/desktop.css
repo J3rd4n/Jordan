@@ -21,6 +21,30 @@
     gap: 8px;
 }
 
+.home-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: rgba(85, 119, 153, 0.15);
+    border: 1px solid rgba(85, 119, 153, 0.3);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.home-button:hover {
+    background: rgba(85, 119, 153, 0.25);
+    border-color: rgba(85, 119, 153, 0.5);
+}
+
+.home-button:active {
+    transform: scale(0.98);
+}
+
 .menu-button {
     display: flex;
     align-items: center;
