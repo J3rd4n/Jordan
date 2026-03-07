@@ -468,6 +468,15 @@
     color: var(--kali-yellow);
 }
 
+/* Firefox Icon Styles */
+.firefox-icon {
+    color: #ff6b35;
+}
+
+.firefox-icon:hover {
+    color: #ff854a;
+}
+
 .port-number {
     font-weight: bold;
     color: var(--kali-light-blue);
@@ -640,70 +649,306 @@
 }
 
 /* Firefox Styles */
+.firefox-window {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #1a1a2e;
+}
+
+.firefox-tabs {
+    display: flex;
+    background: #252525;
+    padding: 8px 8px 0 8px;
+    gap: 4px;
+    border-bottom: 1px solid #404040;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: #1a1a1a;
+    border: 1px solid #404040;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    min-width: 120px;
+    max-width: 200px;
+    transition: all 0.2s ease;
+}
+
+.tab:hover {
+    background: #2a2a2a;
+}
+
+.tab.active {
+    background: #1a1a2e;
+    border-bottom: 1px solid #1a1a2e;
+}
+
+.tab-icon {
+    font-size: 14px;
+}
+
+.tab-title {
+    flex: 1;
+    font-size: 12px;
+    color: #e0e0e0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tab-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #404040;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab-close:hover {
+    background: #555;
+    color: #fff;
+}
+
+.tab-add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: #2a2a2a;
+    border: 1px solid #404040;
+    border-radius: 50%;
+    color: #888;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s ease;
+}
+
+.tab-add:hover {
+    background: #3a3a3a;
+    color: #fff;
+}
+
 .firefox-toolbar {
     padding: 8px 12px;
-    background: var(--panel-bg);
-    border-bottom: 1px solid var(--border-color);
+    background: #252525;
+    border-bottom: 1px solid #404040;
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.url-bar {
-    flex: 1;
-    padding: 8px 12px;
-    background: var(--terminal-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    color: var(--text-primary);
-    font-size: 13px;
+.toolbar-left,
+.toolbar-center,
+.toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
-.url-bar:focus {
+.toolbar-left {
+    flex-shrink: 0;
+}
+
+.toolbar-center {
+    flex: 1;
+    margin: 0 12px;
+}
+
+.toolbar-right {
+    flex-shrink: 0;
+}
+
+.toolbar-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.toolbar-button:hover {
+    background: #3a3a3a;
+    color: #e0e0e0;
+}
+
+.toolbar-button:active {
+    transform: scale(0.95);
+}
+
+.url-bar-container {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    background: #1a1a1a;
+    border: 1px solid #404040;
+    border-radius: 20px;
+    padding: 4px 12px;
+    gap: 8px;
+}
+
+.url-bar-container:focus-within {
+    border-color: #0066ff;
+    box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.2);
+}
+
+.url-protocol {
+    font-size: 14px;
+}
+
+.url-bar {
+    flex: 1;
+    padding: 6px 0;
+    background: transparent;
+    border: none;
+    color: #e0e0e0;
+    font-size: 13px;
     outline: none;
-    border-color: var(--kali-blue);
+}
+
+.url-bar::placeholder {
+    color: #666;
+}
+
+.bookmark-toggle.active {
+    color: #ffd700;
+}
+
+.firefox-bookmarks {
+    display: flex;
+    gap: 4px;
+    padding: 6px 12px;
+    background: #1a1a2e;
+    border-bottom: 1px solid #404040;
+    overflow-x: auto;
+}
+
+.bookmark-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: #2a2a2a;
+    border: 1px solid #404040;
+    border-radius: 4px;
+    color: #e0e0e0;
+    font-size: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.bookmark-item:hover {
+    background: #3a3a3a;
+    border-color: #0066ff;
 }
 
 .firefox-content {
     flex: 1;
     background: white;
+    overflow: hidden;
+    position: relative;
+}
+
+.firefox-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: white;
+}
+
+.firefox-statusbar {
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: #333;
+    justify-content: space-between;
+    padding: 4px 12px;
+    background: #252525;
+    border-top: 1px solid #404040;
+    font-size: 11px;
+    color: #888;
 }
 
-.firefox-placeholder {
-    text-align: center;
-    padding: 40px;
+.status-text {
+    font-size: 11px;
 }
 
-.firefox-placeholder h2 {
-    font-size: 24px;
-    margin-bottom: 16px;
-    color: #333;
+.status-zoom {
+    font-size: 11px;
 }
 
-.firefox-placeholder p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 24px;
+/* Firefox Notifications */
+.firefox-notification {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: rgba(45, 45, 45, 0.98);
+    border: 1px solid #404040;
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    z-index: 10001;
+    animation: slideInUp 0.3s ease-out;
+    backdrop-filter: blur(10px);
 }
 
-.firefox-placeholder button {
-    padding: 12px 24px;
-    background: #0066ff;
+.firefox-notification.fade-out {
+    animation: fadeOut 0.3s ease-out forwards;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+.firefox-notification span {
+    font-size: 13px;
+    color: #e0e0e0;
+}
+
+.notification-close {
+    background: none;
     border: none;
-    border-radius: 6px;
-    color: white;
-    font-size: 14px;
-    font-weight: 600;
+    color: #888;
     cursor: pointer;
-    transition: all 0.2s ease;
+    font-size: 18px;
+    line-height: 1;
+    transition: color 0.2s ease;
 }
 
-.firefox-placeholder button:hover {
-    background: #0052cc;
+.notification-close:hover {
+    color: #e0e0e0;
 }
 
 /* Modal Overlay */
