@@ -13,39 +13,41 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 .container {
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
+    max-height: 95vh;
+    overflow-y: auto;
 }
 
 /* 头部样式 */
 .header {
     text-align: center;
-    margin-bottom: 30px;
-    padding: 20px;
+    margin-bottom: 15px;
+    padding: 15px;
     background: rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
+    border-radius: 12px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .header h1 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 2.8rem;
+    font-size: 2rem;
     font-weight: 900;
     background: linear-gradient(45deg, #ff0080, #ff8c00, #40e0d0);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .header .subtitle {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     color: #aaa;
     font-weight: 300;
 }
@@ -53,8 +55,8 @@ body {
 /* 游戏容器 */
 .game-container {
     background: rgba(0, 0, 0, 0.4);
-    border-radius: 15px;
-    padding: 25px;
+    border-radius: 12px;
+    padding: 15px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -98,9 +100,9 @@ body {
 
 .overlay-content {
     text-align: center;
-    padding: 40px;
+    padding: 25px;
     background: rgba(30, 30, 60, 0.9);
-    border-radius: 15px;
+    border-radius: 12px;
     border: 2px solid #4a4a8a;
     max-width: 400px;
     width: 100%;
@@ -108,31 +110,31 @@ body {
 
 .overlay-content h2 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 2.5rem;
-    margin-bottom: 15px;
+    font-size: 2rem;
+    margin-bottom: 12px;
     color: #40e0d0;
 }
 
 .overlay-content p {
-    font-size: 1.2rem;
-    margin-bottom: 25px;
+    font-size: 1rem;
+    margin-bottom: 20px;
     color: #ccc;
 }
 
 /* 按钮样式 */
 .btn-primary, .btn-secondary {
-    padding: 12px 25px;
-    font-size: 1.1rem;
+    padding: 8px 20px;
+    font-size: 1rem;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 500;
-    margin: 8px;
+    margin: 5px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 6px;
 }
 
 .btn-primary {
@@ -141,7 +143,7 @@ body {
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(255, 0, 128, 0.4);
 }
 
@@ -157,30 +159,31 @@ body {
 
 /* 游戏侧边栏 */
 .game-sidebar {
-    flex: 0 0 350px;
+    flex: 0 0 280px;
 }
 
 .game-info {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
 }
 
 .info-card {
     background: rgba(20, 20, 40, 0.8);
-    border-radius: 12px;
-    padding: 20px;
+    border-radius: 8px;
+    padding: 10px;
     border: 1px solid rgba(74, 74, 138, 0.5);
+    margin-bottom: 10px;
 }
 
 .info-card h3 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 1.4rem;
-    margin-bottom: 15px;
+    font-size: 1rem;
+    margin-bottom: 8px;
     color: #ff8c00;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 6px;
 }
 
 /* 游戏信息项目 */
@@ -188,7 +191,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding: 5px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -198,12 +201,12 @@ body {
 
 .info-label {
     color: #aaa;
-    font-size: 1rem;
+    font-size: 0.85rem;
 }
 
 .info-value {
     font-family: 'Orbitron', sans-serif;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 700;
     color: #40e0d0;
 }
@@ -212,14 +215,14 @@ body {
 .next-piece-container {
     display: flex;
     justify-content: center;
-    padding: 15px;
+    padding: 10px;
     background: rgba(10, 10, 30, 0.6);
-    border-radius: 8px;
+    border-radius: 6px;
 }
 
 #nextPieceCanvas {
     background: rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
+    border-radius: 6px;
     border: 2px solid #4a4a8a;
 }
 
@@ -227,16 +230,16 @@ body {
 .controls {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
 }
 
 .control-item {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 8px 12px;
+    gap: 10px;
+    padding: 6px 10px;
     background: rgba(0, 0, 0, 0.3);
-    border-radius: 6px;
+    border-radius: 5px;
     transition: background 0.3s ease;
 }
 
@@ -246,7 +249,7 @@ body {
 
 .key {
     background: rgba(255, 255, 255, 0.1);
-    padding: 6px 12px;
+    padding: 4px 10px;
     border-radius: 4px;
     font-family: 'Orbitron', sans-serif;
     font-weight: 700;
@@ -264,37 +267,37 @@ body {
 .settings {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
 .setting-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 0;
+    padding: 6px 0;
 }
 
 .setting-item label {
     color: #ccc;
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
 
 .setting-item select {
     background: rgba(0, 0, 0, 0.4);
     color: white;
     border: 1px solid #4a4a8a;
-    border-radius: 6px;
-    padding: 8px 12px;
-    font-size: 1rem;
-    width: 120px;
+    border-radius: 5px;
+    padding: 6px 10px;
+    font-size: 0.9rem;
+    width: 100px;
 }
 
 /* 切换开关 */
 .toggle-switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 30px;
+    width: 50px;
+    height: 26px;
 }
 
 .toggle-switch input {
@@ -312,14 +315,14 @@ body {
     bottom: 0;
     background-color: #444;
     transition: .4s;
-    border-radius: 34px;
+    border-radius: 30px;
 }
 
 .toggle-slider:before {
     position: absolute;
     content: "";
-    height: 22px;
-    width: 22px;
+    height: 18px;
+    width: 18px;
     left: 4px;
     bottom: 4px;
     background-color: white;
@@ -332,31 +335,54 @@ input:checked + .toggle-slider {
 }
 
 input:checked + .toggle-slider:before {
-    transform: translateX(30px);
+    transform: translateX(24px);
 }
 
 /* 页脚样式 */
 .footer {
     text-align: center;
-    margin-top: 30px;
-    padding: 20px;
+    margin-top: 15px;
+    padding: 10px;
     color: #888;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     background: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
+    border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer p {
-    margin: 5px 0;
+    margin: 3px 0;
 }
 
 .copyright {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: #666;
 }
 
 /* 响应式设计 */
+@media (max-height: 800px) {
+    .header {
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+    
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .header .subtitle {
+        font-size: 0.85rem;
+    }
+    
+    .game-container {
+        padding: 10px;
+    }
+    
+    .game-sidebar {
+        flex: 0 0 250px;
+    }
+}
+
 @media (max-width: 900px) {
     .game-area {
         flex-direction: column;
@@ -368,116 +394,37 @@ input:checked + .toggle-slider:before {
     }
     
     .header h1 {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
     }
 }
 
 @media (max-width: 600px) {
     .header h1 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
     
     .game-board {
-        min-width: 300px;
-    }
-    
-    #gameCanvas {
-        width: 280px;
-        height: 560px;
+        min-width: 280px;
     }
     
     .overlay-content {
-        padding: 20px;
+        padding: 15px;
+        max-width: 300px;
     }
     
     .overlay-content h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
-}
-
-/* 动画效果 */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-.pulse {
-    animation: pulse 0.5s ease;
-}
-
-/* 游戏状态指示器 */
-.game-status {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 5px 10px;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 5px;
-    font-size: 0.9rem;
-    color: #ff8c00;
-}
-
-/* 移动端控制按钮 */
-.mobile-controls {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: 400px;
-    padding: 0 20px;
-    z-index: 100;
-}
-
-.mobile-control-row {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.mobile-btn {
-    background: rgba(255, 255, 255, 0.15);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 12px;
-    color: white;
-    font-size: 1.5rem;
-    padding: 15px 20px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    backdrop-filter: blur(10px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    min-width: 60px;
-    min-height: 60px;
-    user-select: none;
-    -webkit-user-select: none;
-    -webkit-touch-callout: none;
-}
-
-.mobile-btn:active {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(0.95);
-}
-
-.mobile-btn-rotate {
-    background: rgba(255, 136, 0, 0.3);
-    border-color: rgba(255, 136, 0, 0.5);
-}
-
-.mobile-btn-drop {
-    background: rgba(64, 224, 208, 0.3);
-    border-color: rgba(64, 224, 208, 0.5);
-    font-size: 1rem;
-    min-width: 120px;
-}
-
-.mobile-btn-drop span {
-    font-size: 0.9rem;
+    
+    .overlay-content p {
+        font-size: 1rem;
+    }
+    
+    .btn-primary, .btn-secondary {
+        padding: 10px 20px;
+        font-size: 1rem;
+        margin: 5px;
+    }
 }
 
 /* 移动端显示控制按钮 */
