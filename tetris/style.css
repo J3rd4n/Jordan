@@ -540,12 +540,8 @@ input:checked + .toggle-slider:before {
     }
 }
 
-/* 移动端显示控制按钮 */
+/* 移动端显示控制按钮 - 这里的规则已在文件开头定义，此处保留其他移动端样式 */
 @media (max-width: 768px) {
-    .mobile-controls {
-        display: block;
-    }
-
     .game-sidebar {
         display: none;
     }
