@@ -49,10 +49,15 @@ class KaliSimulator {
 
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const username = usernameInput.value.trim() || 'kali';
+            const username = usernameInput.value.trim();
             const password = passwordInput.value;
 
-            // 密码必须是 kali
+            // 用户名必须输入，密码必须是 kali
+            if (!username) {
+                this.showLoginError('Please enter a username');
+                return;
+            }
+
             if (password === 'kali') {
                 this.login('normal', username);
             } else {
@@ -69,16 +74,18 @@ class KaliSimulator {
         });
     }
 
-    showLoginError() {
-        const passwordInput = document.getElementById('password');
-        passwordInput.style.borderColor = '#aa5555';
-        passwordInput.classList.add('shake');
-        
-        setTimeout(() => {
-            passwordInput.style.borderColor = '';
-            passwordInput.classList.remove('shake');
-            passwordInput.value = '';
-        }, 500);
+    showLoginError(field = 'password') {
+        const inputElement = document.getElementById(field);
+        if (inputElement) {
+            inputElement.style.borderColor = '#aa5555';
+            inputElement.classList.add('shake');
+
+            setTimeout(() => {
+                inputElement.style.borderColor = '';
+                inputElement.classList.remove('shake');
+                inputElement.value = '';
+            }, 500);
+        }
     }
 
     login(mode = 'normal', username = 'kali') {
