@@ -13,70 +13,70 @@ window.loadLevelData({
         {
             "x": 387,
             "y": 541,
-            "width": 100,
+            "width": 140,
             "height": 20
         },
         {
             "x": 575,
             "y": 538,
-            "width": 100,
+            "width": 140,
             "height": 20
         },
         {
             "x": 762,
             "y": 461,
-            "width": 100,
+            "width": 140,
             "height": 20
         },
         {
             "x": 950,
             "y": 458,
-            "width": 100,
+            "width": 140,
             "height": 20
         },
         {
             "x": 1137,
             "y": 381,
-            "width": 100,
+            "width": 140,
             "height": 20
         },
         {
             "x": 1325,
             "y": 378,
-            "width": 100,
+            "width": 140,
             "height": 20
         }
     ],
     "spikes": [
         {
-            "x": 444,
+            "x": 450,
             "y": 511,
-            "width": 30,
-            "height": 30
+            "width": 25,
+            "height": 25
         },
         {
-            "x": 613,
+            "x": 650,
             "y": 508,
-            "width": 30,
-            "height": 30
+            "width": 25,
+            "height": 25
         },
         {
-            "x": 816,
+            "x": 840,
             "y": 431,
-            "width": 30,
-            "height": 30
+            "width": 25,
+            "height": 25
         },
         {
-            "x": 987,
+            "x": 1050,
             "y": 428,
-            "width": 30,
-            "height": 30
+            "width": 25,
+            "height": 25
         },
         {
-            "x": 1184,
+            "x": 1250,
             "y": 351,
-            "width": 30,
-            "height": 30
+            "width": 25,
+            "height": 25
         }
     ],
     "coins": [
