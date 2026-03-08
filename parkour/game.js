@@ -132,6 +132,10 @@ class Game {
             this.showLevelSelect();
         });
         
+        document.getElementById('instructions-btn').addEventListener('click', () => {
+            this.showInstructions();
+        });
+        
         document.getElementById('settings-btn').addEventListener('click', () => {
             this.showSettings();
         });
@@ -146,6 +150,10 @@ class Game {
         
         document.getElementById('close-settings-btn').addEventListener('click', () => {
             this.hideSettings();
+        });
+        
+        document.getElementById('close-instructions-btn').addEventListener('click', () => {
+            this.hideInstructions();
         });
         
         document.getElementById('back-to-menu-btn').addEventListener('click', () => {
@@ -1057,6 +1065,14 @@ class Game {
     
     hideSettings() {
         document.getElementById('settings-modal').style.display = 'none';
+    }
+    
+    showInstructions() {
+        document.getElementById('instructions-modal').style.display = 'block';
+    }
+    
+    hideInstructions() {
+        document.getElementById('instructions-modal').style.display = 'none';
     }
     
     updateDeveloperModeButton() {
