@@ -132,9 +132,16 @@ class Game {
             this.showLevelSelect();
         });
         
-        document.getElementById('instructions-btn').addEventListener('click', () => {
-            this.showInstructions();
-        });
+        const instructionsBtn = document.getElementById('instructions-btn');
+        if (instructionsBtn) {
+            instructionsBtn.addEventListener('click', () => {
+                console.log('操作说明按钮被点击');
+                this.showInstructions();
+            });
+            console.log('操作说明按钮事件监听器已绑定');
+        } else {
+            console.error('找不到instructions-btn元素');
+        }
         
         document.getElementById('settings-btn').addEventListener('click', () => {
             this.showSettings();
@@ -1068,7 +1075,13 @@ class Game {
     }
     
     showInstructions() {
-        document.getElementById('instructions-modal').style.display = 'block';
+        console.log('显示操作说明');
+        const modal = document.getElementById('instructions-modal');
+        if (modal) {
+            modal.style.display = 'block';
+        } else {
+            console.error('找不到instructions-modal元素');
+        }
     }
     
     hideInstructions() {
