@@ -469,10 +469,10 @@ body {
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.95), rgba(118, 75, 162, 0.95));
     border: 2px solid rgba(255, 107, 107, 0.5);
     border-radius: 16px;
-    padding: 50px;
-    max-width: 550px;
-    width: 90%;
-    max-height: 80vh;
+    padding: 40px;
+    max-width: 600px;
+    width: 80%;
+    max-height: 75vh;
     overflow-y: auto;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
@@ -480,8 +480,8 @@ body {
 
 .settings-content h2 {
     color: #fff;
-    font-size: 36px;
-    margin-bottom: 35px;
+    font-size: 32px;
+    margin-bottom: 30px;
     text-align: center;
     background: linear-gradient(45deg, #f093fb, #f5576c);
     -webkit-background-clip: text;
