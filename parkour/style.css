@@ -44,7 +44,15 @@ body {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-#start-btn {
+.start-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#start-btn,
+#instructions-btn {
     padding: 20px 60px;
     font-size: 24px;
     background: linear-gradient(45deg, #f093fb, #f5576c);
@@ -59,33 +67,10 @@ body {
     letter-spacing: 2px;
 }
 
-#start-btn:hover {
+#start-btn:hover,
+#instructions-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 12px 30px rgba(240, 147, 251, 0.6);
-}
-
-.instructions {
-    margin-top: 40px;
-    padding: 30px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 16px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.3);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-}
-
-.instructions h3 {
-    color: #ffd700;
-    margin-bottom: 20px;
-    font-size: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
-.instructions p {
-    margin: 15px 0;
-    font-size: 16px;
-    line-height: 1.8;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 /* 关卡选择屏幕 */
@@ -560,6 +545,39 @@ body {
     color: rgba(255, 255, 255, 0.8);
     font-size: 15px;
     margin: 0;
+}
+
+.instructions-content {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.instruction-section {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: rgba(255, 107, 107, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 107, 107, 0.2);
+}
+
+.instruction-section h3 {
+    color: #ffd700;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.instruction-section p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.instruction-section strong {
+    color: #f5576c;
+    font-weight: bold;
 }
 
 .settings-buttons {
