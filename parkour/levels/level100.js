@@ -13,82 +13,70 @@ window.loadLevelData({
         {
             "x": 380,
             "y": 530,
-            "width": 100,
+            "width": 140,
             "height": 20
         },
         {
             "x": 560,
             "y": 550,
-            "width": 100,
+            "width": 140,
             "height": 20
         },
         {
             "x": 740,
             "y": 450,
-            "width": 100,
+            "width": 140,
             "height": 20
         },
         {
             "x": 920,
             "y": 470,
-            "width": 100,
+            "width": 140,
             "height": 20
         },
         {
             "x": 1100,
             "y": 370,
-            "width": 100,
+            "width": 140,
             "height": 20
         },
         {
             "x": 1280,
             "y": 390,
-            "width": 100,
+            "width": 140,
             "height": 20
         }
     ],
     "spikes": [
         {
-            "x": 432,
+            "x": 440,
             "y": 500,
-            "width": 30,
-            "height": 30
+            "width": 25,
+            "height": 25
         },
         {
-            "x": 619,
+            "x": 640,
             "y": 520,
-            "width": 30,
-            "height": 30
+            "width": 25,
+            "height": 25
         },
         {
-            "x": 765,
+            "x": 800,
             "y": 420,
-            "width": 30,
-            "height": 30
+            "width": 25,
+            "height": 25
         },
         {
-            "x": 940,
+            "x": 1000,
             "y": 440,
-            "width": 30,
-            "height": 30
+            "width": 25,
+            "height": 25
         },
         {
-            "x": 1153,
+            "x": 1200,
             "y": 340,
-            "width": 30,
-            "height": 30
-        },
-        {
-            "x": 425,
-            "y": 500,
-            "width": 30,
-            "height": 30
-        },
-        {
-            "x": 591,
-            "y": 520,
-            "width": 30,
-            "height": 30
+            "width": 25,
+            "height": 25
         }
     ],
     "coins": [
