@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>2D跑酷游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- 开始屏幕 -->
+        <div id="start-screen">
+            <h1>🏃 2D跑酷游戏</h1>
+            <p>挑战100个越来越难的关卡！</p>
+            <button id="start-btn">开始游戏</button>
+            <div class="instructions">
+                <h3>🎮 操作说明</h3>
+                <p><strong>电脑:</strong> 空格键/↑/W 跳跃 | ←/→/A/D 左右移动 | ESC 退出</p>
+                <p><strong>手机:</strong> 点击屏幕跳跃 | 左右滑动移动</p>
+                <p>💡 提示: 收集金币获得额外分数，避开障碍物！</p>
+            </div>
+        </div>
+        
+        <!-- 关卡选择屏幕 -->
+        <div id="level-select-screen" style="display: none;">
+            <div class="level-select-header">
+                <h2>🎯 选择关卡</h2>
+                <button id="settings-btn" class="settings-btn">⚙️ 设置</button>
+            </div>
+            <div id="level-grid" class="level-grid"></div>
+            <button id="back-to-menu-btn">返回菜单</button>
+        </div>
+        
+        <!-- 游戏屏幕 -->
+        <div id="game-screen" style="display: none;">
+            <div id="game-ui">
+                <button id="exit-btn" class="exit-btn">退出</button>
+                <div class="ui-left">
+                    <span id="level-display">关卡: 1/100</span>
+                    <span id="time-display">时间: 0:00</span>
+                    <span id="coin-display">金币: 0</span>
+                </div>
+                <div class="ui-right">
+                    <span id="deaths-display">死亡: 0</span>
+                </div>
+            </div>
+            <canvas id="game-canvas"></canvas>
+            <div id="mobile-controls">
+                <button id="jump-btn">跳跃</button>
+            </div>
+        </div>
+        
+        <!-- 游戏结束屏幕 -->
+        <div id="game-over-screen" style="display: none;">
+            <h2>🏆 恭喜通关！</h2>
+            <div class="stats-container">
+                <p id="final-score">⏱️ 总用时: <span>0:00</span></p>
+                <p id="final-deaths">💀 总死亡次数: <span>0</span></p>
+                <p id="final-coins">💰 总金币: <span>0</span></p>
+            </div>
+            <button id="restart-btn">🔄 重新开始</button>
+            <button id="menu-btn">🏠 返回菜单</button>
+        </div>
+        
+        <!-- 关卡完成屏幕 -->
+        <div id="level-complete-screen" style="display: none;">
+            <h2>🎉 关卡完成！</h2>
+            <div class="stats-container">
+                <p id="level-time">⏱️ 用时: <span>0:00</span></p>
+                <p id="level-deaths">💀 死亡次数: <span>0</span></p>
+                <p id="level-coins">💰 金币: <span>0</span></p>
+            </div>
+            <button id="next-level-btn">➡️ 下一关</button>
+        </div>
+        
+        <!-- 设置弹窗 -->
+        <div id="settings-modal" style="display: none;">
+            <div class="settings-content">
+                <h2>⚙️ 游戏设置</h2>
+                <div class="settings-options">
+                    <div class="setting-item">
+                        <label for="developer-mode">开发者模式</label>
+                        <button id="developer-mode-btn" class="setting-btn">关闭</button>
+                        <p class="setting-desc">开启后解锁所有关卡</p>
+                    </div>
+                    <div class="setting-item">
+                        <label for="reset-progress">重置游戏进度</label>
+                        <button id="reset-btn" class="setting-btn reset-btn">重置</button>
+                        <p class="setting-desc">锁定所有关卡，仅保留第一关</p>
+                    </div>
+                </div>
+                <div class="settings-buttons">
+                    <button id="close-settings-btn">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 加载所有关卡文件 -->
+    <script>
+        // 关卡数据存储
+        window.LEVELS = [];
+        window.currentLevelNumber = 0;
+        
+        // 加载关卡函数
+        window.loadLevelData = function(levelData) {
+            window.LEVELS.push(levelData);
+            window.currentLevelNumber++;
+        };
+    </script>
+    
+    <!-- 加载100个关卡 -->
+    <script src="levels/level1.js"></script>
+    <script src="levels/level2.js"></script>
+    <script src="levels/level3.js"></script>
+    <script src="levels/level4.js"></script>
+    <script src="levels/level5.js"></script>
+    <script src="levels/level6.js"></script>
+    <script src="levels/level7.js"></script>
+    <script src="levels/level8.js"></script>
+    <script src="levels/level9.js"></script>
+    <script src="levels/level10.js"></script>
+    <script src="levels/level11.js"></script>
+    <script src="levels/level12.js"></script>
+    <script src="levels/level13.js"></script>
+    <script src="levels/level14.js"></script>
+    <script src="levels/level15.js"></script>
+    <script src="levels/level16.js"></script>
+    <script src="levels/level17.js"></script>
+    <script src="levels/level18.js"></script>
+    <script src="levels/level19.js"></script>
+    <script src="levels/level20.js"></script>
+    <script src="levels/level21.js"></script>
+    <script src="levels/level22.js"></script>
+    <script src="levels/level23.js"></script>
+    <script src="levels/level24.js"></script>
+    <script src="levels/level25.js"></script>
+    <script src="levels/level26.js"></script>
+    <script src="levels/level27.js"></script>
+    <script src="levels/level28.js"></script>
+    <script src="levels/level29.js"></script>
+    <script src="levels/level30.js"></script>
+    <script src="levels/level31.js"></script>
+    <script src="levels/level32.js"></script>
+    <script src="levels/level33.js"></script>
+    <script src="levels/level34.js"></script>
+    <script src="levels/level35.js"></script>
+    <script src="levels/level36.js"></script>
+    <script src="levels/level37.js"></script>
+    <script src="levels/level38.js"></script>
+    <script src="levels/level39.js"></script>
+    <script src="levels/level40.js"></script>
+    <script src="levels/level41.js"></script>
+    <script src="levels/level42.js"></script>
+    <script src="levels/level43.js"></script>
+    <script src="levels/level44.js"></script>
+    <script src="levels/level45.js"></script>
+    <script src="levels/level46.js"></script>
+    <script src="levels/level47.js"></script>
+    <script src="levels/level48.js"></script>
+    <script src="levels/level49.js"></script>
+    <script src="levels/level50.js"></script>
+    <script src="levels/level51.js"></script>
+    <script src="levels/level52.js"></script>
+    <script src="levels/level53.js"></script>
+    <script src="levels/level54.js"></script>
+    <script src="levels/level55.js"></script>
+    <script src="levels/level56.js"></script>
+    <script src="levels/level57.js"></script>
+    <script src="levels/level58.js"></script>
+    <script src="levels/level59.js"></script>
+    <script src="levels/level60.js"></script>
+    <script src="levels/level61.js"></script>
+    <script src="levels/level62.js"></script>
+    <script src="levels/level63.js"></script>
+    <script src="levels/level64.js"></script>
+    <script src="levels/level65.js"></script>
+    <script src="levels/level66.js"></script>
+    <script src="levels/level67.js"></script>
+    <script src="levels/level68.js"></script>
+    <script src="levels/level69.js"></script>
+    <script src="levels/level70.js"></script>
+    <script src="levels/level71.js"></script>
+    <script src="levels/level72.js"></script>
+    <script src="levels/level73.js"></script>
+    <script src="levels/level74.js"></script>
+    <script src="levels/level75.js"></script>
+    <script src="levels/level76.js"></script>
+    <script src="levels/level77.js"></script>
+    <script src="levels/level78.js"></script>
+    <script src="levels/level79.js"></script>
+    <script src="levels/level80.js"></script>
+    <script src="levels/level81.js"></script>
+    <script src="levels/level82.js"></script>
+    <script src="levels/level83.js"></script>
+    <script src="levels/level84.js"></script>
+    <script src="levels/level85.js"></script>
+    <script src="levels/level86.js"></script>
+    <script src="levels/level87.js"></script>
+    <script src="levels/level88.js"></script>
+    <script src="levels/level89.js"></script>
+    <script src="levels/level90.js"></script>
+    <script src="levels/level91.js"></script>
+    <script src="levels/level92.js"></script>
+    <script src="levels/level93.js"></script>
+    <script src="levels/level94.js"></script>
+    <script src="levels/level95.js"></script>
+    <script src="levels/level96.js"></script>
+    <script src="levels/level97.js"></script>
+    <script src="levels/level98.js"></script>
+    <script src="levels/level99.js"></script>
+    <script src="levels/level100.js"></script>
+    
+    <!-- 加载游戏 -->
+    <script src="game.js"></script>
+</body>
+</html>
