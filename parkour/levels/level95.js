@@ -11,78 +11,72 @@ window.loadLevelData({
             "height": 100
         },
         {
-            "x": 382,
+            "x": 380,
             "y": 533,
-            "width": 100,
+            "width": 140,
             "height": 20
         },
         {
             "x": 565,
             "y": 546,
-            "width": 100,
+            "width": 140,
             "height": 20
         },
         {
             "x": 747,
             "y": 453,
-            "width": 100,
+            "width": 140,
             "height": 20
         },
         {
             "x": 930,
             "y": 466,
-            "width": 100,
+            "width": 140,
             "height": 20
         },
         {
             "x": 1112,
             "y": 373,
-            "width": 100,
+            "width": 140,
             "height": 20
         },
         {
             "x": 1295,
             "y": 386,
-            "width": 100,
+            "width": 140,
             "height": 20
         }
     ],
     "spikes": [
         {
-            "x": 414,
+            "x": 450,
             "y": 503,
-            "width": 30,
-            "height": 30
+            "width": 25,
+            "height": 25
         },
         {
-            "x": 594,
+            "x": 680,
             "y": 516,
-            "width": 30,
-            "height": 30
+            "width": 25,
+            "height": 25
         },
         {
-            "x": 806,
+            "x": 810,
             "y": 423,
-            "width": 30,
-            "height": 30
+            "width": 25,
+            "height": 25
         },
         {
-            "x": 956,
+            "x": 1000,
             "y": 436,
-            "width": 30,
-            "height": 30
+            "width": 25,
+            "height": 25
         },
         {
-            "x": 1138,
+            "x": 1200,
             "y": 343,
-            "width": 30,
-            "height": 30
-        },
-        {
-            "x": 431,
-            "y": 503,
-            "width": 30,
-            "height": 30
+            "width": 25,
+            "height": 25
         }
     ],
     "coins": [
@@ -113,13 +107,13 @@ window.loadLevelData({
     ],
     "goal": {
         "x": 1325,
-        "y": 376,
+        "y": "376",
         "width": 40,
         "height": 60
     },
     "movingPlatforms": [
         {
-            "x": 362,
+            "x": 360,
             "y": 503,
             "width": 80,
             "height": 20,
