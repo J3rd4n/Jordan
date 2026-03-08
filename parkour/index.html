@@ -12,12 +12,9 @@
         <div id="start-screen">
             <h1>🏃 2D跑酷游戏</h1>
             <p>挑战100个越来越难的关卡！</p>
-            <button id="start-btn">开始游戏</button>
-            <div class="instructions">
-                <h3>🎮 操作说明</h3>
-                <p><strong>电脑:</strong> 空格键/↑/W 跳跃 | ←/→/A/D 左右移动 | ESC 退出</p>
-                <p><strong>手机:</strong> 点击屏幕跳跃 | 左右滑动移动</p>
-                <p>💡 提示: 收集金币获得额外分数，避开障碍物！</p>
+            <div class="start-buttons">
+                <button id="start-btn">开始游戏</button>
+                <button id="instructions-btn">操作说明</button>
             </div>
         </div>
         
@@ -94,6 +91,45 @@
                 </div>
                 <div class="settings-buttons">
                     <button id="close-settings-btn">关闭</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 操作说明弹窗 -->
+        <div id="instructions-modal" style="display: none;">
+            <div class="settings-content">
+                <h2>🎮 操作说明</h2>
+                <div class="instructions-content">
+                    <div class="instruction-section">
+                        <h3>💻 电脑操作</h3>
+                        <p><strong>跳跃:</strong> 空格键 / ↑ / W</p>
+                        <p><strong>向左移动:</strong> ← / A</p>
+                        <p><strong>向右移动:</strong> → / D</p>
+                        <p><strong>退出游戏:</strong> ESC</p>
+                    </div>
+                    <div class="instruction-section">
+                        <h3>📱 手机操作</h3>
+                        <p><strong>跳跃:</strong> 点击屏幕底部的"跳跃"按钮</p>
+                        <p><strong>移动:</strong> 在游戏画布上左右滑动</p>
+                    </div>
+                    <div class="instruction-section">
+                        <h3>💡 游戏提示</h3>
+                        <p>• 收集金币获得额外分数</p>
+                        <p>• 避开红色尖刺和敌人</p>
+                        <p>• 踩到移动平台上可以随平台移动</p>
+                        <p>• 紫色传送门可以快速移动</p>
+                        <p>• 蓝色冰块地面很滑，小心移动</p>
+                        <p>• 橙色岩浆会直接导致死亡</p>
+                    </div>
+                    <div class="instruction-section">
+                        <h3>🎯 游戏目标</h3>
+                        <p>• 到达绿色旗帜终点即可过关</p>
+                        <p>• 尽量减少死亡次数和时间</p>
+                        <p>• 挑战100个不同难度的关卡</p>
+                    </div>
+                </div>
+                <div class="settings-buttons">
+                    <button id="close-instructions-btn">关闭</button>
                 </div>
             </div>
         </div>
